@@ -9,3 +9,8 @@
   - go to the neon website and setup Neon
   - Go to drizzle and setup DRIZZLE ORM
 
+ 5. custom agents and custom prompts:
+  - create a custom agent good at creating custom instructions for instruction.
+    create the AGENTS.md
+    - AGENTS.md is the entry point for LLM instructions
+    - detailed instructions live in /docs as separate .md files
