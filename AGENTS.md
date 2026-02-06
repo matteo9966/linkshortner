@@ -1,28 +1,51 @@
-
 # LLM Agent Instructions (Project Standards)
 
-This file is the **entry point** for AI/LLM coding standards in this repository.
+This file is the **entry point** for AI/LLM coding standards in this repository. Follow this when generating or modifying code.
 
-## How instructions are organized
+## Repo stack (source of truth = existing code)
 
-- `AGENTS.md` stays **short and stable**: it is an index + a few global non-negotiables.
-- Detailed instructions are split into separate Markdown files under **`/docs`**.
-	- If you need to add or change guidance, prefer updating the relevant `/docs/*.md` file.
+- **Next.js App Router** (`app/`) + React + TypeScript (strict) — see [app/layout.tsx](app/layout.tsx), [app/page.tsx](app/page.tsx), [tsconfig.json](tsconfig.json)
+- **Clerk authentication** — see [`ClerkProvider`](app/layout.tsx) usage and Clerk middleware in [proxy.ts](proxy.ts)
+- **Drizzle ORM + Neon (HTTP driver)** — see [`db`](db/db.ts) in [db/db.ts](db/db.ts)
+- **Tailwind CSS v4 + shadcn/ui conventions** — see [app/globals.css](app/globals.css), [components.json](components.json), and [`cn`](lib/utils.ts) in [lib/utils.ts](lib/utils.ts)
+- **ESLint (Next core-web-vitals + TypeScript)** — see [eslint.config.mjs](eslint.config.mjs)
 
-## Read these first (in order)
+## How guidance is organized
 
-1. `docs/llm-entrypoint.md`
-2. `docs/nextjs-app-router.md`
-3. `docs/auth-clerk.md`
-4. `docs/db-drizzle-neon.md`
+- Keep `AGENTS.md` **short and stable**: global non‑negotiables + pointers.
+- If guidance grows, add **focused docs under `/docs/*.md`** and link them here (prefer that over expanding this file).
 
-## Global non-negotiables
+## Global non‑negotiables (must follow)
 
-- This repo uses **Next.js App Router** only (`app/`), not `pages/` and not `_app.tsx`.
-- Do **not** write real secrets into tracked files. Use placeholders in examples; real values belong in `.env.local`.
-- Keep changes minimal and consistent with existing patterns and folder structure.
+1. **App Router only**
+   - Use `app/` routing and conventions (e.g. `app/**/page.tsx`, `app/**/layout.tsx`, `app/api/**/route.ts`).
+   - Do not introduce `pages/` or `_app.tsx`.
 
-## If instructions conflict
+2. **Secrets and environment variables**
+   - Do **not** write real secrets into tracked files.
+   - Use placeholders in examples; real values belong in `.env.local`.
+   - Server-only env access (e.g. `process.env.DATABASE_URL`) must never be used in client components.
 
-Prefer the most relevant `/docs/*.md` guidance and the existing codebase patterns. If something appears outdated, do not guess—update the relevant `/docs` instruction doc as part of the change.
+3. **Auth (Clerk)**
+   - Use Clerk primitives from `@clerk/nextjs` as in [app/layout.tsx](app/layout.tsx).
+   - If changing request protection/routing rules, follow the existing middleware pattern in [proxy.ts](proxy.ts) (exports `clerkMiddleware()` and `config.matcher`).
+
+4. **Database (Drizzle/Neon)**
+   - Use the shared Drizzle instance [`db`](db/db.ts) from [db/db.ts](db/db.ts).
+   - Keep DB code server-side (Route Handlers, Server Components, Server Actions).
+   - Prefer typed Drizzle queries over ad-hoc patterns.
+
+5. **UI + styling**
+   - Use Tailwind utilities and the `cn(...)` helper [`cn`](lib/utils.ts) from [lib/utils.ts](lib/utils.ts).
+   - Respect `components.json` aliases and shadcn folder conventions (e.g. `@/components`, `@/components/ui`, `@/lib`).
+
+6. **TypeScript + lint**
+   - Keep TypeScript **strict** and avoid `any`.
+   - Match existing import/module style (ESM).
+   - Ensure changes pass `npm run lint` (see [package.json](package.json)).
+
+## Change policy
+
+- Keep changes **minimal**, consistent with existing patterns, and localized to the feature.
+- If a standard seems missing/outdated, codify it by adding a `/docs/*.md` file and linking it here (do not guess silently).
 
