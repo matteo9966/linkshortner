@@ -14,6 +14,7 @@ This file is the **entry point** for AI/LLM coding standards in this repository.
 
 - Keep `AGENTS.md` **short and stable**: global non‑negotiables + pointers.
 - If guidance grows, add **focused docs under `/docs/*.md`** and link them here (prefer that over expanding this file).
+- Auth guidance: [docs/authentication.md](docs/authentication.md)
 
 ## Global non‑negotiables (must follow)
 
