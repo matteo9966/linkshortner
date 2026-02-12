@@ -14,3 +14,6 @@
     create the AGENTS.md
     - AGENTS.md is the entry point for LLM instructions
     - detailed instructions live in /docs as separate .md files
+
+    ctrl + shift + t
+    launch the http: server in the vscode, this is usefult to cherrypick in vscode

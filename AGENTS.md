@@ -14,6 +14,7 @@ This file is the **entry point** for AI/LLM coding standards in this repository.
 
 - Keep `AGENTS.md` **short and stable**: global non‑negotiables + pointers.
 - If guidance grows, add **focused docs under `/docs/*.md`** and link them here (prefer that over expanding this file).
+- **Before making any code or content changes, read every file under `/docs/` — treat `/docs/` as the canonical source for project-level rules and UI/UX conventions.**
 - Auth guidance: [docs/authentication.md](docs/authentication.md)
 - shadcn/ui guidance: [docs/shadcn-ui.md](docs/shadcn-ui.md)
 
@@ -45,6 +46,11 @@ This file is the **entry point** for AI/LLM coding standards in this repository.
    - Keep TypeScript **strict** and avoid `any`.
    - Match existing import/module style (ESM).
    - Ensure changes pass `npm run lint` (see [package.json](package.json)).
+
+7. **Consult `/docs/` before edits**
+   - Always read all files in `/docs/` before modifying code or docs.
+   - Cite the relevant `/docs/*.md` page(s) in PR descriptions or commit messages when changes relate to standards described there.
+   - If `/docs/` is missing guidance for the requested change, add or update a focused `/docs/*.md` file and link it from `AGENTS.md`.
 
 ## Change policy
 

@@ -8,6 +8,7 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import { Button } from "@/components/ui/button";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -41,9 +42,7 @@ export default function RootLayout({
             <SignedOut>
               <SignInButton />
               <SignUpButton>
-                <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
-                  Sign Up
-                </button>
+                <Button>Sign Up</Button>
               </SignUpButton>
             </SignedOut>
             {/* Show the user button when the user is signed in */}
