@@ -2,7 +2,7 @@ import { getAuthUserId } from "@/models/auth";
 import { redirect } from "next/navigation";
 import { SignUpButton, SignInButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
-import { Link2, BarChart3, Zap, Lock } from "lucide-react";
+import { Link2 } from "lucide-react";
 
 const features = [
   {
@@ -10,24 +10,6 @@ const features = [
     title: "Instant URL Shortening",
     description:
       "Transform any long URL into a short, memorable link in one click.",
-  },
-  {
-    icon: BarChart3,
-    title: "Analytics & Insights",
-    description:
-      "Track clicks and monitor the performance of each link from your dashboard.",
-  },
-  {
-    icon: Zap,
-    title: "AI-Powered",
-    description:
-      "Smart suggestions to help you craft the perfect short link for your audience.",
-  },
-  {
-    icon: Lock,
-    title: "Secure & Private",
-    description:
-      "Your links are protected with Clerk authentication and enterprise-grade security.",
   },
 ];
 
@@ -47,8 +29,7 @@ export default async function Home() {
           <span className="text-[#6c47ff]">amplify reach</span>
         </h1>
         <p className="text-muted-foreground text-lg sm:text-xl max-w-2xl">
-          Transform long URLs into clean, shareable links in seconds. Track
-          performance and manage all your links from one powerful dashboard.
+          Transform long URLs into clean, shareable links in seconds.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 mt-2">
           <SignUpButton>
@@ -61,7 +42,7 @@ export default async function Home() {
       </section>
 
       {/* Features */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl w-full mx-auto px-4 pb-24">
+      <section className="grid grid-cols-1 gap-6 max-w-md w-full mx-auto px-4 pb-24">
         {features.map(({ icon: Icon, title, description }) => (
           <div
             key={title}
