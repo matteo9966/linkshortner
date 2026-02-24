@@ -53,9 +53,9 @@ export default function CreateLinkModal({ userId }: { userId: string }) {
 
   return (
     <>
-      <button onClick={openModal} className="btn btn-primary">
+      <Button onClick={openModal} className="btn btn-primary mb-2 w-full">
         Create Link
-      </button>
+      </Button>
 
    <Modal isOpen={isModalOpen} onClose={closeModal}>
         <div className="p-6 bg-black rounded shadow-lg text-white relative">

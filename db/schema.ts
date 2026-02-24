@@ -8,3 +8,6 @@ export const links = pgTable("links", {
   createdAt: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: "date" }).defaultNow().notNull(),
 });
+
+
+export type LinkSchemaType = typeof links.$inferSelect;
