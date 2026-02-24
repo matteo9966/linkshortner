@@ -1,3 +1,8 @@
+---
+description: This file describes the authentication rules and steps for the project.
+applyTo: **/*.ts, **/*.tsx
+---
+
 # Authentication (Clerk)
 
 This repo uses Clerk for all authentication. No other auth methods are allowed.
