@@ -11,6 +11,16 @@ export async function getUserLinks(userId: string) {
     .orderBy(desc(links.createdAt));
 }
 
+export async function getLinkBySlug(slug: string) {
+  const results = await db
+    .select()
+    .from(links)
+    .where(eq(links.shortCode, slug))
+    .limit(1);
+
+  return results[0] || null;
+}
+
 export async function createLink({
   url,
   slug,

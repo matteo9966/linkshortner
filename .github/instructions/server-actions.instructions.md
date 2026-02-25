@@ -114,3 +114,5 @@ export async function someServerAction(inputData: unknown) {
   return { success: true, data: result };
 }
 ```
+
+dont write db queries in the server action, wrap them in helper functions in the /data directory and import those helper functions into the server action
