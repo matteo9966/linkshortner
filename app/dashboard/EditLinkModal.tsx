@@ -19,7 +19,12 @@ type EditLinkModalProps = {
   onClose: () => void;
 };
 
-export default function EditLinkModal({ linkId, currentUrl, currentSlug, onClose }: EditLinkModalProps) {
+export default function EditLinkModal({
+  linkId,
+  currentUrl,
+  currentSlug,
+  onClose,
+}: EditLinkModalProps) {
   const [isModalOpen, setModalOpen] = useState(true);
 
   const handleSubmit: DOMAttributes<HTMLFormElement>["onSubmit"] = async (
@@ -52,10 +57,19 @@ export default function EditLinkModal({ linkId, currentUrl, currentSlug, onClose
   };
 
   return (
-    <Modal isOpen={isModalOpen} onClose={() => { setModalOpen(false); onClose(); }}>
+    <Modal
+      isOpen={isModalOpen}
+      onClose={() => {
+        setModalOpen(false);
+        onClose();
+      }}
+    >
       <div className="p-6 bg-black rounded shadow-lg text-white relative">
         <button
-          onClick={() => { setModalOpen(false); onClose(); }}
+          onClick={() => {
+            setModalOpen(false);
+            onClose();
+          }}
           className="absolute top-2 right-2 text-white hover:text-red-500"
         >
           ✕

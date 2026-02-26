@@ -10,7 +10,10 @@ type DeleteLinkModalProps = {
   onClose: () => void;
 };
 
-export default function DeleteLinkModal({ linkId, onClose }: DeleteLinkModalProps) {
+export default function DeleteLinkModal({
+  linkId,
+  onClose,
+}: DeleteLinkModalProps) {
   const [isModalOpen, setModalOpen] = useState(true);
 
   const handleDelete = async () => {
@@ -26,22 +29,39 @@ export default function DeleteLinkModal({ linkId, onClose }: DeleteLinkModalProp
   };
 
   return (
-    <Modal isOpen={isModalOpen} onClose={() => { setModalOpen(false); onClose(); }}>
+    <Modal
+      isOpen={isModalOpen}
+      onClose={() => {
+        setModalOpen(false);
+        onClose();
+      }}
+    >
       <div className="p-6 bg-black rounded shadow-lg text-white relative">
         <button
-          onClick={() => { setModalOpen(false); onClose(); }}
+          onClick={() => {
+            setModalOpen(false);
+            onClose();
+          }}
           className="absolute top-2 right-2 text-white hover:text-red-500"
         >
           ✕
         </button>
 
         <h2 className="text-2xl font-bold mb-4 text-center">Delete Link</h2>
-        <p className="text-center mb-4">Are you sure you want to delete this link?</p>
+        <p className="text-center mb-4">
+          Are you sure you want to delete this link?
+        </p>
         <div className="flex justify-center gap-4">
           <Button onClick={handleDelete} className="btn btn-danger">
             Delete
           </Button>
-          <Button onClick={() => { setModalOpen(false); onClose(); }} className="btn btn-secondary">
+          <Button
+            onClick={() => {
+              setModalOpen(false);
+              onClose();
+            }}
+            className="btn btn-secondary"
+          >
             Cancel
           </Button>
         </div>

@@ -3,7 +3,6 @@ import { getAuthUserId } from "@/models/auth";
 import { LinkCard } from "./LinkCard";
 
 const UserLinks = async () => {
-
   const userId = await getAuthUserId();
   if (!userId) {
     return <div>Error: Unauthorized</div>;
@@ -11,8 +10,6 @@ const UserLinks = async () => {
 
   try {
     const links = await getUserLinks(userId);
-
-
 
     return (
       <div>
@@ -22,15 +19,10 @@ const UserLinks = async () => {
         ) : (
           <div className="flex flex-col gap-4">
             {links.map((link) => (
-              <LinkCard
-                key={link.id}
-                link={link}
-            
-              />
+              <LinkCard key={link.id} link={link} />
             ))}
           </div>
         )}
-
       </div>
     );
   } catch (error) {

@@ -6,6 +6,7 @@ applyTo: **/*.ts, **/*.tsx
 # Server Actions Guidelines
 
 ## Overview
+
 This document outlines the standards for implementing server actions in this project. Server actions are used for all data mutations and must adhere to the following guidelines to ensure consistency, security, and maintainability.
 
 ## Key Principles
@@ -46,6 +47,7 @@ This document outlines the standards for implementing server actions in this pro
 
 2. **Validate Input Data**
    - Use Zod to validate the input data:
+
      ```typescript
      import { z } from "zod";
 
@@ -59,6 +61,7 @@ This document outlines the standards for implementing server actions in this pro
 
 3. **Check Authentication**
    - Ensure the user is authenticated before proceeding:
+
      ```typescript
      import { getAuthUserId } from "@/models/auth";
 
@@ -70,6 +73,7 @@ This document outlines the standards for implementing server actions in this pro
 
 4. **Use Helper Functions**
    - Call helper functions from the `/data` directory to interact with the database:
+
      ```typescript
      import { someDatabaseHelper } from "@/data/someHelper";
 

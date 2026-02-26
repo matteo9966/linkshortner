@@ -46,8 +46,11 @@ export async function createLink({
   return newLink;
 }
 
-
-export async function updateLink(linkId: number, userId: string, updates: { url?: string; slug?: string }) {
+export async function updateLink(
+  linkId: number,
+  userId: string,
+  updates: { url?: string; slug?: string },
+) {
   const updatedAt = new Date();
 
   const [updatedLink] = await db

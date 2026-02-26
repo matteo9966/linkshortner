@@ -10,15 +10,14 @@ const seedData = {
 
 async function seedDatabase() {
   console.log("Seeding database...");
-    try {
+  try {
     await db.execute(seedData.sql);
     console.log("Database seeded successfully!");
   } catch (error) {
     console.error("Error seeding database:", error);
   } finally {
     process.exit();
-  } 
+  }
 }
-
 
 seedDatabase();

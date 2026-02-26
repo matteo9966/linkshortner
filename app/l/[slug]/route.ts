@@ -6,7 +6,7 @@ import { getLinkBySlug } from "@/data/links";
 
 export async function GET(
   request: Request,
-   {params} :{params: Promise<{ slug: string } >}
+  { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
   console.log("Received request for slug:", slug);
@@ -28,5 +28,5 @@ export async function GET(
   }
 
   // redirect to the original URL
-  return NextResponse.redirect(link.originalUrl,301);
+  return NextResponse.redirect(link.originalUrl, 301);
 }

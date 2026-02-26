@@ -5,7 +5,6 @@ const CreateLinkSchema = z.object({
   slug: z.string().optional(),
 });
 
-
 type CreateLinkInput = z.infer<typeof CreateLinkSchema>;
 
 export type { CreateLinkInput };

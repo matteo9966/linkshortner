@@ -13,7 +13,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   return (
     <div
       className={cn(
-        "fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+        "fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50",
       )}
       onClick={onClose}
     >
@@ -21,7 +21,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
         className={cn(
           "bg-black p-4 rounded shadow-[0_0_15px_white] text-white m-auto border-white border-2",
           "font-bold text-lg",
-          "hover:shadow-[0_0_20px_cyan] transition-shadow duration-300"
+          "hover:shadow-[0_0_20px_cyan] transition-shadow duration-300",
         )}
         onClick={(e) => e.stopPropagation()}
       >

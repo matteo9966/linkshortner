@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: "default" | "outline" | "ghost"
-}
+  variant?: "default" | "outline" | "ghost";
+};
 
 export const buttonVariants = {
   default:
@@ -13,7 +13,7 @@ export const buttonVariants = {
   outline:
     "rounded-md border border-solid border-border bg-transparent px-3 py-2 text-sm",
   ghost: "bg-transparent px-2 py-1 text-sm hover:bg-muted/50",
-}
+};
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "default", children, ...props }, ref) => {
@@ -25,9 +25,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {children}
       </button>
-    )
-  }
-)
-Button.displayName = "Button"
+    );
+  },
+);
+Button.displayName = "Button";
 
-export { Button }
+export { Button };

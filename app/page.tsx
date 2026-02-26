@@ -25,8 +25,7 @@ export default async function Home() {
       {/* Hero */}
       <section className="flex flex-col items-center justify-center text-center px-4 py-24 gap-6 w-full max-w-4xl mx-auto">
         <h1 className="text-4xl sm:text-6xl font-bold tracking-tight">
-          Shorten links,{" "}
-          <span className="text-[#6c47ff]">amplify reach</span>
+          Shorten links, <span className="text-[#6c47ff]">amplify reach</span>
         </h1>
         <p className="text-muted-foreground text-lg sm:text-xl max-w-2xl">
           Transform long URLs into clean, shareable links in seconds.

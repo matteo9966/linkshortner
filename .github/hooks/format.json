@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "shell",
+        "command": "echo 'Session started!'"
+      }
+    ],
+
+    "postToolUse": [
+      {
+        "type": "shell",
+        "bash": "echo 'Tool used!'; npx prettier --write ."
+      }
+    ]
+  }
+}

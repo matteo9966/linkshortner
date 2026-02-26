@@ -42,7 +42,7 @@ export default function CreateLinkModal({ userId }: { userId: string }) {
       userId: userId,
     });
 
-    if(result.error) {
+    if (result.error) {
       alert(result.error);
     } else {
       alert("Link created successfully!");
@@ -57,7 +57,7 @@ export default function CreateLinkModal({ userId }: { userId: string }) {
         Create Link
       </Button>
 
-   <Modal isOpen={isModalOpen} onClose={closeModal}>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
         <div className="p-6 bg-black rounded shadow-lg text-white relative">
           {/* Close Button */}
           <button
@@ -67,7 +67,9 @@ export default function CreateLinkModal({ userId }: { userId: string }) {
             ✕
           </button>
 
-          <h2 className="text-2xl font-bold mb-4 text-center">Create a New Link</h2>
+          <h2 className="text-2xl font-bold mb-4 text-center">
+            Create a New Link
+          </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label htmlFor="url" className="block mb-1 font-medium">
@@ -98,6 +100,6 @@ export default function CreateLinkModal({ userId }: { userId: string }) {
           </form>
         </div>
       </Modal>
-      </>
+    </>
   );
 }

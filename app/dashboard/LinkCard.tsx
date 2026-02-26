@@ -51,8 +51,12 @@ export const LinkCard = ({ link }: { link: LinkSchemaType }) => {
         </CardHeader>
         <CardContent>
           <p>
-            Original URL: {" "}
-            <a href={link.originalUrl} target="_blank" rel="noopener noreferrer">
+            Original URL:{" "}
+            <a
+              href={link.originalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {link.originalUrl}
             </a>
           </p>

@@ -13,6 +13,9 @@ export async function GET() {
     const userLinks = await getUserLinks(userId);
     return NextResponse.json(userLinks);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch links" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to fetch links" },
+      { status: 500 },
+    );
   }
 }
